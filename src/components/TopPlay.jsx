@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper';
+import { FreeMode, Autoplay } from 'swiper';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
@@ -71,8 +71,8 @@ const TopPlay = () => {
           </Link>
         </div>
 
-        <div className="mt-4 flex flex-col gap-1">
-          {topPlays?.map((song, i) => (
+        <div className="mt-4 flex flex-col gap-1 h-[calc(100vh-350px)] overflow-scroll">
+          {data?.map((song, i) => (
             <TopChartCard
               key={song.key}
               song={song}
